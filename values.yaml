@@ -253,3 +253,9 @@ minioConfig:
 networkPolicy:
   enabled: false
   allowExternal: true
+
+# https://github.com/minrk/tc-init/tree/0.0.4
+limitBandwidth:
+  repository: minrk/tc-init
+  tag: 0.0.4
+  egress: ""

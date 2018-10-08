@@ -129,6 +129,7 @@ The following table lists the configurable parameters of the Minio chart and the
 | `gcsgateway.projectId`     | Google cloud project id             | `""` |
 | `nasgateway.enabled`       | Use minio as a [NAS gateway](https://docs.minio.io/docs/minio-gateway-for-nas)             | `false` |
 | `nasgateway.replicas`      | Number of NAS gateway instances to be run in parallel on a PV            | `4` |
+| `limitBandwidth.egress`   | Limit download speeds from minio, e.g. `1mbit`, default disabled    | `""`
 
 Some of the parameters above map to the env variables defined in the [Minio DockerHub image](https://hub.docker.com/r/minio/minio/).
 

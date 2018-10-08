@@ -26,6 +26,16 @@ spec:
   {{- if .Values.priorityClassName }}
       priorityClassName: "{{ .Values.priorityClassName }}"
   {{- end }}
+      initContainers:
+        - name: tcinit
+          image: "{{ .Values.limitBandwidth.repository }}:{{ .Values.limitBandwidth.tag }}"
+          env:
+            - name: EGRESS_BANDWIDTH
+              value: {{ .Values.limitBandwidth.egress }}
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
