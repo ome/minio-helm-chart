@@ -1,6 +1,8 @@
 Minio
 =====
 
+Note: This chart was originally extracted from https://github.com/helm/charts/tree/9dcbc2e7fbdc8b58d915cdfb62c985a2075558d2/stable/minio using `git filter-branch --prune-empty --subdirectory-filter stable/minio master` and has been modified to support network bandwidth limits for testing local clients on a simulated degraded network.
+
 [Minio](https://minio.io) is a lightweight, AWS S3 compatible object storage server. It is best suited for storing unstructured data such as photos, videos, log files, backups, VM and container images. Size of an object can range from a few KBs to a maximum of 5TB. Minio server is light enough to be bundled with the application stack, similar to NodeJS, Redis and MySQL.
 
 Minio supports [distributed mode](https://docs.minio.io/docs/distributed-minio-quickstart-guide). In distributed mode, you can pool multiple drives (even on different machines) into a single object storage server.
@@ -127,6 +129,7 @@ The following table lists the configurable parameters of the Minio chart and the
 | `gcsgateway.projectId`     | Google cloud project id             | `""` |
 | `nasgateway.enabled`       | Use minio as a [NAS gateway](https://docs.minio.io/docs/minio-gateway-for-nas)             | `false` |
 | `nasgateway.replicas`      | Number of NAS gateway instances to be run in parallel on a PV            | `4` |
+| `limitBandwidth.egress`   | Limit download speeds from minio, e.g. `1mbit`, default disabled    | `""`
 
 Some of the parameters above map to the env variables defined in the [Minio DockerHub image](https://hub.docker.com/r/minio/minio/).
 
