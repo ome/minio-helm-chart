@@ -102,6 +102,10 @@ spec:
                   name: {{ template "minio.fullname" . }}
                   key: gcs_key.json
             {{- end }}
+            {{- if .Values.debug.http }}
+            - name: MINIO_HTTP_TRACE
+              value: {{ .Values.debug.http }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /minio/health/live
