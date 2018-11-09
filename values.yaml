@@ -259,3 +259,6 @@ limitBandwidth:
   repository: minrk/tc-init
   tag: 0.0.4
   egress: ""
+
+debug:
+  http:
